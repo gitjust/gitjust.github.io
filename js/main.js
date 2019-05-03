@@ -19,6 +19,30 @@ $.get(_url, function(data) {
   $("#cat_select").html("<option value='all'>semua</option>" + catResults)
 })
 
+var networkDataReceived = false
+
+//fresh data from online
+var networkUpdate = fetch(_url).then(function(response) {
+  return response.json()
+}).then(function(data) {
+  networkDataReceived = true
+  renderPage(data)
+})
+
+
+//return data from cache
+caches.match(_url).then(function(response){
+  if(!response) throw Error('no data on cache')
+  return response.json()
+}).then(function(data){
+  if(!networkDataReceived) {
+    renderPage(data)
+    console.log('render data from cache')
+  }
+}).catch(function(){
+  return networkUpdate
+})
+
 $("#cat_select").on("change", function() {
   updateProduct($(this).val())
 })
