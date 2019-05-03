@@ -19,6 +19,7 @@ function renderPage(data) {
   $("#cat_select").html("<option value='all'>semua</option>" + catResults)
 }
 
+
 var networkDataReceived = false
 
 //fresh data from online
