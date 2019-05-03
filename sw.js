@@ -36,7 +36,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   var request = event.request
   var url = new URL(request.url)
-  //pisahkan request API dan Internal
+  //pisahkan request API dan Internal(css, jss, dll.)
   if (url.origin === location.origin) {
     event.respondWith(
       caches.match(request).then(function(response) {

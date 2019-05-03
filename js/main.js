@@ -6,7 +6,7 @@ var dataResults = ""
 var catResults = ""
 var categories = []
 
-$.get(_url, function(data) {
+function renderPage(data) {
   $.each(data, function(key, items) {
     _cat = items.category
     dataResults += "<div><h3>" + items.name + "</h3><p>" + _cat + "</p></div>"
@@ -17,7 +17,7 @@ $.get(_url, function(data) {
   })
   $("#products").html(dataResults)
   $("#cat_select").html("<option value='all'>semua</option>" + catResults)
-})
+}
 
 var networkDataReceived = false
 
