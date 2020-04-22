@@ -3,11 +3,6 @@
   "short_name": "PWAGram",
   "icons": [
     {
-      "src": "/src/icons/icon-48x48.png",
-      "type": "image/png",
-      "sizes": "48x48"
-    },
-    {
       "src": "/src/icons/icon-96x96.png",
       "type": "image/png",
       "sizes": "96x96"
@@ -21,11 +16,6 @@
       "src": "/src/icons/icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "/src/icons/icon-256x256.png",
-      "type": "image/png",
-      "sizes": "256x256"
     },
     {
       "src": "/src/icons/icon-384x384.png",
