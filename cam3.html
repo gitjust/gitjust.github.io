@@ -23,7 +23,7 @@ div.select {
   </div>
   <video id="video" muted autoplay playsinline></video>
   <canvas id="canvas" style="overflow:auto"></canvas>
-  <button onclick="capture()">Capture</button>
+  <a id="download" download="myImage.jpg" href="" onclick="capture(this);">DownloadImage.jpg</a>
   <script>
   document.getElementById("video").width = screen.width;
   function capture() {
