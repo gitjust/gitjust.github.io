@@ -22,8 +22,21 @@ div.select {
     <label for="videoSource">Video source: </label><select id="videoSource"></select>
   </div>
   <video id="video" muted autoplay playsinline></video>
+  <canvas id="canvas" style="overflow:auto"></canvas>
+  <button onclick="capture()">Capture</button>
   <script>
   document.getElementById("video").width = screen.width;
+  function capture() {
+    var canvas = document.getElementById('canvas');     
+    var video = document.getElementById('video');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);  
+    canvas.toBlob() = (blob) => {
+      const img = new Image();
+      img.src = window.URL.createObjectUrl(blob);
+    };
+  }
   </script>
   <script src="cam2.js"></script>
   <p>This demo requires Chrome 30 or later.</p>
