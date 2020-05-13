@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="theme-color" name="theme-color" content="#fff">
+<base target="_blank">
+<title>Mic & Camera</title>
+<style>
+div.select {
+  margin: 0 0 1em 0;
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <h1>Mic & Camera</h1>
+  <div class="select">
+    <label for="audioSource">Audio source: </label><select id="audioSource"></select>
+  </div>
+  <div class="select">
+    <label for="videoSource">Video source: </label><select id="videoSource"></select>
+  </div>
+  <video id="video" muted autoplay playsinline></video>
+  <canvas id="canvas" style="overflow:auto"></canvas>
+  <button onclick="capture()">Capture</button>
+  <script>
+  document.getElementById("video").width = screen.width;
+  function capture() {
+    var canvas = document.getElementById('canvas');     
+    var video = document.getElementById('video');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);  
+    canvas.toDataURL("image/jpg");
+  }
+  </script>
+  <script src="cam.js"></script>
+</div>
+</body>
+</html>
