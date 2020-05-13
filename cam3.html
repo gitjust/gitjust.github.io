@@ -32,7 +32,7 @@ div.select {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);  
-    canvas.toDataURL("image/jpg");
+    canvas.toBlob().toDataURL("image/jpg");
   }
   </script>
   <script src="cam.js"></script>
